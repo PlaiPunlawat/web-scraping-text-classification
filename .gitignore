@@ -30,6 +30,3 @@ Thumbs.db
 # Data files (downloaded at runtime)
 *.csv
 data/
-
-# Local tooling
-.claude/
