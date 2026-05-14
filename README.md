@@ -1,7 +1,7 @@
 # Web Scraping & Text Classification
 
 > KMITL Assignment 2 — Data Science Course  
-> Student: Pulawat Lee-Charoen (ปุลวัชร ลี-เจริญ) | ID: 62070256
+> Student: Pulawat Lee-Charoen (ปุลวัชร ลี้เจริญ) | ID: 62070256
 
 ## Overview
 
