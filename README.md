@@ -20,6 +20,24 @@ This project focuses on scraping data from a website and creating models for tex
 5. **Hyperparameter Tuning** — `RandomizedSearchCV` for optimizing model parameters
 6. **Evaluation** — Confusion matrix, ROC curves, accuracy, precision, recall, F1-score
 
+## Technologies & Techniques
+
+| Area | Details |
+|------|---------|
+| **Web Scraping** | HTTP requests, HTML parsing, DOM traversal with BeautifulSoup |
+| **NLP Preprocessing** | Tokenization, 3 stemming algorithms (Porter, Snowball, Lancaster), lemmatization with POS tagging |
+| **Feature Engineering** | TF-IDF vectorization, text-to-numeric feature transformation |
+| **Machine Learning** | Multi-model comparison, hyperparameter tuning with RandomizedSearchCV |
+| **Evaluation** | Confusion matrices, ROC/AUC curves, precision/recall/F1 metrics |
+
+## Key Skills Demonstrated
+
+- Data collection & web scraping pipelines
+- NLP text preprocessing techniques
+- Supervised classification (Logistic Regression, KNN, Naive Bayes, SVM)
+- Model selection & hyperparameter optimization
+- Statistical evaluation & visualization
+
 ## Getting Started
 
 ### Prerequisites
