@@ -5,30 +5,27 @@
 
 ## Overview
 
-This project focuses on scraping data from a website and creating models for text classification using Logistic Regression, KNeighborsClassifier, MultinomialNB, and LinearSVC.
+This project implements a complete NLP pipeline — from scraping raw news articles to classifying them with tuned machine learning models. The best model achieves **98.53% accuracy** on the test set.
 
-### Pipeline
+## Pipeline & Technologies
 
-1. **Web Scraping** — Collecting news articles using `requests` and `BeautifulSoup`
-2. **Text Preprocessing** — Tokenization, stemming (Porter, Snowball, Lancaster), and lemmatization with POS tagging
-3. **Feature Engineering** — TF-IDF vectorization with `TfidfVectorizer`
-4. **Classification** — Training and comparing four models:
-   - Logistic Regression
-   - K-Nearest Neighbors (KNN)
-   - Multinomial Naive Bayes
-   - Linear Support Vector Classification (LinearSVC)
-5. **Hyperparameter Tuning** — `RandomizedSearchCV` for optimizing model parameters
-6. **Evaluation** — Confusion matrix, ROC curves, accuracy, precision, recall, F1-score
+| Stage | Technique | Tools |
+|-------|-----------|-------|
+| 1. Data Collection | Web scraping, HTML parsing, DOM traversal | `requests`, `BeautifulSoup` |
+| 2. Text Preprocessing | Tokenization, stemming (Porter, Snowball, Lancaster), lemmatization with POS tagging | `nltk` |
+| 3. Feature Engineering | TF-IDF vectorization | `scikit-learn` |
+| 4. Classification | Multi-model training & comparison | `scikit-learn` |
+| 5. Hyperparameter Tuning | Randomized search with cross-validation | `RandomizedSearchCV` |
+| 6. Evaluation | Confusion matrix, ROC/AUC, precision, recall, F1 | `matplotlib`, `seaborn` |
 
-## Technologies & Techniques
+## Best Results (Test Set — Porter Stemmer + Tuning)
 
-| Area | Details |
-|------|---------|
-| **Web Scraping** | HTTP requests, HTML parsing, DOM traversal with BeautifulSoup |
-| **NLP Preprocessing** | Tokenization, 3 stemming algorithms (Porter, Snowball, Lancaster), lemmatization with POS tagging |
-| **Feature Engineering** | TF-IDF vectorization, text-to-numeric feature transformation |
-| **Machine Learning** | Multi-model comparison, hyperparameter tuning with RandomizedSearchCV |
-| **Evaluation** | Confusion matrices, ROC/AUC curves, precision/recall/F1 metrics |
+| Model | Accuracy | Precision | Recall | F1 Score |
+|-------|----------|-----------|--------|----------|
+| **Linear SVC** | **98.53%** | **98.54%** | **98.53%** | **98.53%** |
+| Logistic Regression | 98.17% | 98.18% | 98.17% | 98.17% |
+| Multinomial Naive Bayes | 97.44% | 97.45% | 97.44% | 97.44% |
+| K-Nearest Neighbors | 96.34% | 96.34% | 96.34% | 96.34% |
 
 ## Key Skills Demonstrated
 
