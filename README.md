@@ -1,11 +1,17 @@
-# Web Scraping & Text Classification
+# kmitl-news-scraping-text-classification
 
-> KMITL Assignment 2 — Data Science Course  
+> KMITL Assignment 2 - Data Science Course
 > Student: Pulawat Leecharoen (ปุลวัชร ลี้เจริญ) | ID: 62070256
 
 ## Overview
 
-This project implements a complete NLP pipeline — from scraping raw news articles to classifying them with tuned machine learning models. The best model achieves **98.53% accuracy** on the test set.
+This project implements an end-to-end NLP workflow: scrape news articles (Task 1), preprocess text, build TF-IDF features, and train/tune multiple classifiers (Logistic Regression, KNN, Multinomial Naive Bayes, Linear SVC).
+
+Headline result from the notebook outputs:
+- Overall best: **98.90% test F1** (Task 6 Optional, Heading+Content)
+- Model setup: **Snowball Stemmer + tuned Linear SVC**
+
+The notebook conclusion also reports **Snowball Stemmer** and **Lemmatizer with POS** as the strongest normalization approaches across experiments.
 
 ## Pipeline & Technologies
 
@@ -14,11 +20,13 @@ This project implements a complete NLP pipeline — from scraping raw news artic
 | 1. Data Collection | Web scraping, HTML parsing, DOM traversal | `requests`, `BeautifulSoup` |
 | 2. Text Preprocessing | Tokenization, stemming (Porter, Snowball, Lancaster), lemmatization with POS tagging | `nltk` |
 | 3. Feature Engineering | TF-IDF vectorization | `scikit-learn` |
-| 4. Classification | Multi-model training & comparison | `scikit-learn` |
+| 4. Classification | Multi-model training and comparison | `scikit-learn` |
 | 5. Hyperparameter Tuning | Randomized search with cross-validation | `RandomizedSearchCV` |
 | 6. Evaluation | Confusion matrix, ROC/AUC, precision, recall, F1 | `matplotlib`, `seaborn` |
 
-## Best Results (Test Set — Porter Stemmer + Tuning)
+## Results
+
+### Task 5.1 (Content): Porter Stemmer + Tuning
 
 | Model | Accuracy | Precision | Recall | F1 Score |
 |-------|----------|-----------|--------|----------|
@@ -27,20 +35,30 @@ This project implements a complete NLP pipeline — from scraping raw news artic
 | Multinomial Naive Bayes | 97.44% | 97.45% | 97.44% | 97.44% |
 | K-Nearest Neighbors | 96.34% | 96.34% | 96.34% | 96.34% |
 
-## Key Skills Demonstrated
+### Overall Best (Task 6 Optional, Heading+Content)
 
-- Data collection & web scraping pipelines
-- NLP text preprocessing techniques
-- Supervised classification (Logistic Regression, KNN, Naive Bayes, SVM)
-- Model selection & hyperparameter optimization
-- Statistical evaluation & visualization
+- **Model:** Snowball Stemmer + tuned Linear SVC
+- **Test Accuracy:** **98.90%**
+- **Test F1:** **98.90%**
+
+## Data
+
+The articles were scraped from the KMITL course archive site at assignment time. That source may no longer be online, so a snapshot is committed in `data/`:
+
+- `data/categories.txt`
+- `data/articles_content.txt`
+- `data/articles_heading_content.txt`
+
+Reproducibility notes:
+- Task 1 (scraping) is kept as reference code.
+- Tasks 2-7 are reproducible directly from the committed snapshot.
 
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.7+
-- Google Colab (recommended) or a local Jupyter environment
+- Google Colab or local Jupyter environment
 
 ### Installation
 
@@ -48,19 +66,22 @@ This project implements a complete NLP pipeline — from scraping raw news artic
 pip install -r requirements.txt
 ```
 
-### Running
+### Run
 
-Open the notebook in Google Colab or Jupyter:
+Open the notebook:
 
 ```bash
-jupyter notebook "1_62070256_ปุลวัชร_Assign2.ipynb"
+jupyter notebook news_text_classification.ipynb
 ```
 
-> **Note:** The notebook uses `gdown` to fetch training data from Google Drive. Ensure you have internet access when running.
+Execution guidance:
+- In Google Colab, uncomment the setup cell near the top to clone the repo and enter the project directory.
+- For normal reproducible runs, start from **Task 2**.
+- Run **Task 1** only if you want to re-scrape (source site may be offline).
 
 ## Dependencies
 
-See [requirements.txt](requirements.txt) for the full list. Key libraries:
+See `requirements.txt` for the full list. Key libraries:
 
 | Category | Libraries |
 |----------|-----------|
@@ -72,4 +93,4 @@ See [requirements.txt](requirements.txt) for the full list. Key libraries:
 
 ## License
 
-This project is part of coursework at King Mongkut's Institute of Technology Ladkrabang (KMITL).
+MIT License - Copyright (c) Pulawat Leecharoen
